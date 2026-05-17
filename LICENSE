@@ -5,11 +5,10 @@ example files contained in this public repository. It does NOT grant any rights
 to the Vilix product, backend, production code, APIs, database logic, or
 internal infrastructure, which are proprietary and are not included here.
 
-TODO: The Vilix team should confirm the final license choice for this
-documentation repository before wide distribution (recommended: MIT for
-examples, or CC BY 4.0 for documentation prose). The text below applies the MIT
-License to the documentation and example content in this repository in the
-interim.
+This documentation repository is licensed under the MIT License, reproduced
+below. The MIT terms apply to the documentation, setup guides, and example
+content in this repository — not to the Vilix product, which remains
+proprietary.
 
 ---
 

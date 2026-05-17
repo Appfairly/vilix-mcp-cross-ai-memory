@@ -6,13 +6,13 @@ to ChatGPT, Cursor, Windsurf, and other MCP-compatible tools.
 
 ## Prerequisites
 
-- A Vilix account — sign up at <https://getvilix.com/get-started>
+- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 - A Claude client that supports MCP connectors (Claude desktop/web with
   connectors, or Claude Code)
 
 ## Setup
 
-1. Sign in to Vilix and open the setup page: <https://getvilix.com/get-started>
+1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 2. In Claude, add a new MCP connector (or add the server to your Claude Code
    MCP configuration).
 3. Use the Vilix MCP server endpoint:
@@ -42,4 +42,4 @@ Start a new Claude conversation and ask it to continue something you began in
 ChatGPT or another tool. With Vilix connected, Claude should retrieve that
 context automatically.
 
-**Get started:** <https://getvilix.com/get-started>
+**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

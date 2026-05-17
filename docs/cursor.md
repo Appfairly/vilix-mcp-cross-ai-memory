@@ -6,12 +6,12 @@ already available when you start implementing in Cursor.
 
 ## Prerequisites
 
-- A Vilix account — sign up at <https://getvilix.com/get-started>
+- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 - A Cursor version that supports MCP servers
 
 ## Setup
 
-1. Sign in to Vilix and open the setup page: <https://getvilix.com/get-started>
+1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 2. Open Cursor's MCP settings and add a new MCP server.
 3. Use the Vilix MCP server endpoint:
 
@@ -27,7 +27,7 @@ already available when you start implementing in Cursor.
 Cursor configures MCP servers via its settings UI / `mcp.json`. The exact
 schema is owned by Cursor and may change — treat the block below as a
 placeholder and follow Cursor's current MCP docs and the
-[get started page](https://getvilix.com/get-started):
+[get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs):
 
 ```jsonc
 {
@@ -49,4 +49,4 @@ from zero.
 See [examples/coding-agent-workflow.md](../examples/coding-agent-workflow.md)
 for an end-to-end "decide in Claude, build in Cursor" flow.
 
-**Get started:** <https://getvilix.com/get-started>
+**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

@@ -6,12 +6,12 @@ other MCP-compatible tools — and vice versa.
 
 ## Prerequisites
 
-- A Vilix account — sign up at <https://getvilix.com/get-started>
+- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 - A ChatGPT plan/tier that supports adding MCP connectors
 
 ## Setup
 
-1. Sign in to Vilix and open the setup page: <https://getvilix.com/get-started>
+1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 2. In ChatGPT, add a new MCP connector / custom connector.
 3. Use the Vilix MCP server endpoint:
 
@@ -38,9 +38,9 @@ you to repeat it.
 ## Notes
 
 - The exact connector UI wording in ChatGPT can change between releases. Follow
-  the in-product steps on the [get started page](https://getvilix.com/get-started),
+  the in-product steps on the [get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs),
   which stays current.
 - See [mcp-config.md](mcp-config.md) for the generic MCP configuration shared by
   all clients.
 
-**Get started:** <https://getvilix.com/get-started>
+**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

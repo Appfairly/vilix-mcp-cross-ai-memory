@@ -7,7 +7,7 @@ re-explain your projects, preferences, decisions, and workflow every session.
 
 **Start in ChatGPT. Continue in Claude. Finish in Cursor. Without repeating yourself.**
 
-[**Get started →**](https://getvilix.com/get-started) &nbsp;·&nbsp;
+[**Get started →**](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs) &nbsp;·&nbsp;
 [Website](https://getvilix.com) &nbsp;·&nbsp;
 [Docs](https://getvilix.com/docs) &nbsp;·&nbsp;
 [Privacy](https://getvilix.com/privacy)
@@ -63,8 +63,8 @@ separate, broken version of you inside every tool.
 You will need a Vilix account. Setup takes about five minutes and uses OAuth —
 no API tokens to copy or store.
 
-1. **Create a Vilix account** — sign up at <https://getvilix.com/get-started>
-2. **Open the setup page** — follow the in-product steps at <https://getvilix.com/get-started>
+1. **Create a Vilix account** — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+2. **Open the setup page** — follow the in-product steps at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 3. **Connect your AI client** — pick your tool (ChatGPT, Claude, Cursor, Windsurf, Perplexity)
 4. **Add the Vilix MCP server** — use the connection details below
 5. **Start using persistent memory** — your context now follows you across tools
@@ -72,7 +72,7 @@ no API tokens to copy or store.
 ### MCP server connection
 
 The Vilix MCP server uses a single endpoint across every supported client
-(this URL is published on the [get started page](https://getvilix.com/get-started)):
+(this URL is published on the [get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)):
 
 ```
 https://api.getvilix.com/mcp/sse
@@ -86,7 +86,7 @@ the per-tool guides in [`docs/`](docs/).
 **Links**
 
 - Website: <https://getvilix.com>
-- Get started: <https://getvilix.com/get-started>
+- Get started: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 - Docs: <https://getvilix.com/docs>
 
 ## Example use cases
@@ -152,4 +152,4 @@ tools.
 
 **Ready to stop repeating yourself?**
 
-**Start here: <https://getvilix.com/get-started>**
+**Start here: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)**

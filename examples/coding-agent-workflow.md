@@ -47,4 +47,4 @@ Next time Cursor works on auth, the updated decision is already there.
 Setup: [../docs/claude.md](../docs/claude.md) ·
 [../docs/cursor.md](../docs/cursor.md)
 
-**Try it:** <https://getvilix.com/get-started>
+**Try it:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

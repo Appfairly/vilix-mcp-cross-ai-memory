@@ -40,4 +40,4 @@ Whichever tool you open next continues from this decision.
 
 See also: [sample-memory-workflow.md](sample-memory-workflow.md)
 
-**Try it:** <https://getvilix.com/get-started>
+**Try it:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

@@ -44,4 +44,4 @@ The next tool you open already knows monetization is the current focus.
 See also: [founder-workflow.md](founder-workflow.md) ·
 [coding-agent-workflow.md](coding-agent-workflow.md)
 
-**Try it:** <https://getvilix.com/get-started>
+**Try it:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

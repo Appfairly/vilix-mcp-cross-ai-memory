@@ -6,12 +6,12 @@ from ChatGPT, Claude, and Cursor.
 
 ## Prerequisites
 
-- A Vilix account — sign up at <https://getvilix.com/get-started>
+- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 - A Windsurf version that supports MCP servers
 
 ## Setup
 
-1. Sign in to Vilix and open the setup page: <https://getvilix.com/get-started>
+1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
 2. Open Windsurf's MCP / plugin settings and add a new MCP server.
 3. Use the Vilix MCP server endpoint:
 
@@ -26,7 +26,7 @@ from ChatGPT, Claude, and Cursor.
 
 Windsurf owns its MCP configuration format and it may change. Treat the block
 below as a placeholder and follow Windsurf's current MCP docs and the
-[get started page](https://getvilix.com/get-started):
+[get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs):
 
 ```jsonc
 {
@@ -44,4 +44,4 @@ below as a placeholder and follow Windsurf's current MCP docs and the
 Ask Windsurf's AI about a decision or preference you set in another tool. With
 Vilix connected, it should retrieve that context automatically.
 
-**Get started:** <https://getvilix.com/get-started>
+**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

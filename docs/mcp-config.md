@@ -13,7 +13,7 @@ dedicated guide.
 | Authentication | OAuth (approve once in the connection flow — no tokens to store) |
 
 > This endpoint is the one published publicly at
-> <https://getvilix.com/get-started>. It is the single URL used across all
+> [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs). It is the single URL used across all
 > supported AI tools.
 
 ## Generic MCP server entry
@@ -21,7 +21,7 @@ dedicated guide.
 Most MCP clients accept a server map similar to the placeholder below. The exact
 schema is defined by each client and can change — always cross-check with that
 client's MCP documentation and the
-[Vilix get started page](https://getvilix.com/get-started):
+[Vilix get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs):
 
 ```jsonc
 {
@@ -65,4 +65,4 @@ use the server URL above, and complete the OAuth approval. The wording of the
 connector UI varies by client and version — follow that client's current MCP
 instructions plus the Vilix get started page.
 
-**Get started:** <https://getvilix.com/get-started>
+**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
