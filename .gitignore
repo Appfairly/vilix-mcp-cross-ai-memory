@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Local env (none should exist in this docs repo — extra safety)
+.env
+.env.*
+*.local
