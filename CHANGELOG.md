@@ -6,6 +6,14 @@ itself.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/).
 
+## 0.1.3 - 2026-09-10
+
+- Added remote MCP Registry metadata for `io.github.Appfairly/vilix`
+- Added a manual, main-only Registry publish workflow using GitHub OIDC
+- Pinned the publisher and checkout action, with validation and publication checks
+- Registry metadata starts at version `1.0.0`; this docs release is `0.1.3`
+  and neither version identifies the hosted Vilix product deployment
+
 ## 0.1.2 - 2026-09-10
 
 - Migrated setup, dashboard, policy, and support links to vilix.ai

@@ -1,0 +1,97 @@
+name: Publish MCP Registry metadata
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-mcp-registry
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out reviewed metadata
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - name: Validate metadata with the official Registry
+        run: |
+          curl --fail --silent --show-error \
+            --header 'Content-Type: application/json' \
+            --data-binary @server.json \
+            https://registry.modelcontextprotocol.io/v0.1/validate \
+            --output registry-validation.json
+          python3 - <<'PY'
+          import json
+          result = json.load(open('registry-validation.json'))
+          print(json.dumps(result))
+          if not result.get('valid'):
+              raise SystemExit('Registry validation failed')
+          PY
+
+      - name: Check the exact version is not already published
+        run: |
+          python3 - <<'PY'
+          import json, urllib.parse, urllib.request, urllib.error
+          manifest = json.load(open('server.json'))
+          name = urllib.parse.quote(manifest['name'], safe='')
+          version = urllib.parse.quote(manifest['version'], safe='')
+          url = f'https://registry.modelcontextprotocol.io/v0.1/servers/{name}/versions/{version}?include_deleted=true'
+          try:
+              with urllib.request.urlopen(url, timeout=30) as response:
+                  response.read()
+          except urllib.error.HTTPError as error:
+              if error.code != 404:
+                  raise
+              print('Exact name/version is not published.')
+          else:
+              raise SystemExit('This name/version already exists; review it before publishing another version.')
+          PY
+
+      - name: Install the verified publisher release
+        run: |
+          curl --fail --silent --show-error --location \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz \
+            --output mcp-publisher.tar.gz
+          python3 - <<'PY'
+          import hashlib
+          expected = 'a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc'
+          actual = hashlib.sha256(open('mcp-publisher.tar.gz', 'rb').read()).hexdigest()
+          if actual != expected:
+              raise SystemExit('Publisher checksum mismatch')
+          PY
+          tar xzf mcp-publisher.tar.gz mcp-publisher
+
+      - name: Authenticate using this repository's GitHub identity
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish reviewed metadata
+        run: ./mcp-publisher publish
+
+      - name: Verify the published name and version
+        run: |
+          python3 - <<'PY'
+          import json, urllib.parse, urllib.request
+          manifest = json.load(open('server.json'))
+          name = urllib.parse.quote(manifest['name'], safe='')
+          version = urllib.parse.quote(manifest['version'], safe='')
+          url = f'https://registry.modelcontextprotocol.io/v0.1/servers/{name}/versions/{version}'
+          with urllib.request.urlopen(url, timeout=30) as response:
+              result = json.load(response)
+          server = result.get('server', result)
+          if server.get('name') != manifest['name'] or server.get('version') != manifest['version']:
+              raise SystemExit('Published metadata does not match the reviewed manifest')
+          if server.get('remotes') != manifest['remotes']:
+              raise SystemExit('Published remote configuration differs')
+          print(json.dumps(result, indent=2))
+          PY
