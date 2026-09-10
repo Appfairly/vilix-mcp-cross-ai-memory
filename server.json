@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Appfairly/vilix",
+  "title": "Vilix AI",
+  "description": "Shared memory for connected AI tools. Projects, rules and skills over MCP. OAuth or API key.",
+  "version": "1.0.0",
+  "websiteUrl": "https://vilix.ai",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.vilix.ai/mcp"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://vilix.ai/brand/vilix-mark.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    }
+  ]
+}
