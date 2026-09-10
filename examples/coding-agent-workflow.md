@@ -6,35 +6,35 @@ both clients to that same account, and add the
 save and retrieval tool results before relying on the generated implementation.
 
 This shows how a developer moves product decisions from a planning tool into a
-coding agent — without re-briefing it.
+coding agent without re-briefing it.
 
 ## Scenario
 
 You are a developer. You plan architecture with Claude and implement with
-Cursor. Normally you copy-paste the plan into Cursor every time. With Vilix, you
+Cursor. Normally you copy-paste the plan into Cursor every time. With Vilix AI, you
 do not.
 
-## Step 1 — Make decisions in Claude
+## Step 1: Make decisions in Claude
 
-In Claude (connected to Vilix):
+In Claude (connected to Vilix AI):
 
 > "For the Lumen API, we decided: Postgres over SQLite, REST not GraphQL, and
 > auth via short-lived JWT with refresh tokens. Remember these decisions."
 
-Vilix persists the architectural decisions.
+Vilix AI persists the architectural decisions.
 
-## Step 2 — Implement in Cursor
+## Step 2: Implement in Cursor
 
-Open Cursor (connected to Vilix) in your project:
+Open Cursor (connected to Vilix AI) in your project:
 
 > "Scaffold the auth module according to the architecture decisions we made for
 > Lumen."
 
-Cursor's AI retrieves the decisions from Vilix — Postgres, REST, short-lived
-JWT with refresh — and scaffolds consistently with the plan, instead of
+Cursor's AI retrieves the decisions from Vilix AI: Postgres, REST, short-lived
+JWT with refresh. It scaffolds consistently with the plan, instead of
 inventing its own approach or asking you to re-explain.
 
-## Step 3 — Decisions evolve, memory follows
+## Step 3: Decisions evolve, memory follows
 
 Later, back in Claude:
 

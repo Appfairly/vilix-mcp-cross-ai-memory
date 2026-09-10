@@ -6,7 +6,7 @@ or devices.
 
 Vilix AI is a hosted memory service built on the **Model Context Protocol
 (MCP)**, the standard that lets an AI client call external tools. Connect each
-supported client to the same Vilix account, then have it retrieve context before
+supported client to the same Vilix AI account, then have it retrieve context before
 answering and save the exchange before returning its reply.
 
 [Get started](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
@@ -14,32 +14,33 @@ answering and save the exchange before returning its reply.
 · [Dashboard](https://app.vilix.ai/)
 · [Documentation](https://vilix.ai/docs)
 
-## The problem Vilix solves
+## The problem Vilix AI solves
 
 You plan a project in Claude, implement it in a coding agent, and ask ChatGPT
-for another perspective. Each tool needs the same background. Vilix provides
+for another perspective. Each tool needs the same background. Vilix AI provides
 shared memory that connected tools can retrieve instead of making you paste
 that background again.
 
 **Plan on your phone. Continue on your laptop.** Both clients must be connected
-to your Vilix account and able to call its memory tools. Client plans, mobile
+to your Vilix AI account and able to call its memory tools. Client plans, mobile
 support, organization policies, and tool approvals can differ.
 
 ## Connect your tool
 
 | Client | Setup guide | Connection |
 | --- | --- | --- |
-| Claude Code | [Claude Code setup](docs/claude.md#claude-code) | Streamable HTTP + OAuth |
-| Cursor | [Editor and CLI setup](docs/cursor.md) | Streamable HTTP + OAuth |
+| Claude and Claude Code | [Web, desktop, mobile, and CLI setup](docs/claude.md) | Remote MCP + OAuth |
 | Codex | [Desktop, CLI, and IDE setup](docs/codex.md) | Streamable HTTP + OAuth or API key |
-| ChatGPT | [Web developer-mode setup](docs/chatgpt.md) | Streamable HTTP + OAuth; eligible paid account |
-| Claude | [Web, desktop, and mobile setup](docs/claude.md) | Remote connector + OAuth |
+| Cursor | [Editor and CLI setup](docs/cursor.md) | Streamable HTTP + OAuth |
+| OpenClaw | [Current host setup](https://vilix.ai/get-started?tool=openclaw&method=mcp&device=desktop) | Streamable HTTP + API key |
+| Hermes | [Current CLI setup](https://vilix.ai/get-started?tool=hermes&method=cli&device=desktop) | Streamable HTTP + API key |
 | Windsurf / Cascade | [Legacy Cascade setup](docs/windsurf.md) | Streamable HTTP + OAuth |
+| ChatGPT | [Web developer-mode setup](docs/chatgpt.md) | Streamable HTTP + OAuth; eligible paid account |
 | Other clients | [Connection and authentication reference](docs/mcp-config.md) | Requires compatible remote MCP and authentication support |
 
-For additional client guides, including OpenClaw and Hermes, use the
-[current setup selector](https://vilix.ai/get-started). These are connection
-guides, not claims of endorsement by the client vendors.
+The [current setup selector](https://vilix.ai/get-started) covers additional
+client paths. These guides describe connecting to Vilix AI; they do not imply
+endorsement by the client vendors.
 
 ### Connection details
 
@@ -48,15 +49,15 @@ https://api.vilix.ai/mcp
 ```
 
 - **Transport:** Streamable HTTP. Use the full URL above; do not append `/sse`.
-- **Authentication:** OAuth for clients with a browser sign-in flow. Vilix also
+- **Authentication:** OAuth for clients with a browser sign-in flow. Vilix AI also
   offers revocable API keys for clients that support bearer headers. Follow
   your client's guide; authentication configuration is not interchangeable.
-- **Account:** Sign in to the same Vilix account in each client. See
+- **Account:** Sign in to the same Vilix AI account in each client. See
   [current plans](https://vilix.ai/pricing) for product limits.
 
-You do not need to clone or run this repository to connect. Vilix hosts the MCP
+You do not need to clone or run this repository to connect. Vilix AI hosts the MCP
 server. Existing chats in another provider are not automatically imported by
-adding a connector; memory must first be saved to Vilix or imported through an
+adding a connector; memory must first be saved to Vilix AI or imported through an
 available product workflow.
 
 ## Make memory part of each exchange
@@ -68,7 +69,7 @@ The core memory workflow uses two tools:
 2. `save_turn(user_message=..., assistant_message=..., source=..., chat_id=...)`
    saves the finalized exchange before the assistant returns that same answer.
 
-Reuse the returned `chat_id` within the same conversation. Vilix also exposes
+Reuse the returned `chat_id` within the same conversation. Vilix AI also exposes
 other tools for search and managing context; the connected client's tool list
 is the current reference.
 
@@ -88,9 +89,9 @@ These examples are illustrative. Verify the actual `get_context` and
 
 ## Privacy and control
 
-Use the dashboard to inspect and manage your saved context. Vilix's
+Use the dashboard to inspect and manage your saved context. Vilix AI's
 [Privacy Policy](https://vilix.ai/privacy) describes retention, export,
-deletion, and data handling; saved conversations are not used by Vilix to train
+deletion, and data handling; saved conversations are not used by Vilix AI to train
 foundation models. Connected AI clients have their own data policies.
 
 See [privacy and control](docs/privacy-and-control.md) and the

@@ -6,7 +6,7 @@ September 10, 2026.
 
 ## Requirements
 
-- A [Vilix account](https://vilix.ai/get-started).
+- A [Vilix AI account](https://vilix.ai/get-started).
 - A current Cursor client with remote MCP enabled. Your organization may need
   to allow the server URL and tools.
 
@@ -32,7 +32,7 @@ local server command is needed.
 ### Cursor editor
 
 1. Restart Cursor if the new entry is not visible.
-2. Open **Customize → MCPs**, enable Vilix, and complete the OAuth sign-in.
+2. Open **Customize → MCPs**, enable Vilix AI, and complete the OAuth sign-in.
 3. Use Agent mode and confirm `get_context` and `save_turn` are available.
 4. Add the [memory instructions](mcp-config.md#memory-instructions) under
    **Customize → Rules** as a User Rule, or use a project rule for a single
@@ -62,6 +62,6 @@ controls as the editor.
 
 - [Cursor: MCP configuration, OAuth, and policy](https://cursor.com/docs/mcp)
 - [Cursor: CLI MCP commands](https://cursor.com/docs/cli/mcp)
-- [Vilix's current Cursor setup](https://vilix.ai/get-started?tool=cursor&method=mcp&device=desktop)
+- [Vilix AI's current Cursor setup](https://vilix.ai/get-started?tool=cursor&method=mcp&device=desktop)
 
 Need help? [support@vilix.ai](mailto:support@vilix.ai).

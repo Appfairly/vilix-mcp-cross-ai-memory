@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an improvement to the Vilix MCP experience or docs
+about: Suggest an improvement to the Vilix AI MCP experience or docs
 title: "[Feature] "
 labels: enhancement
 assignees: ''

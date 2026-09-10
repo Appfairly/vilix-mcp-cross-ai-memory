@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem with Vilix MCP setup or documentation
+about: Report a problem with Vilix AI MCP setup or documentation
 title: "[Bug] "
 labels: bug
 assignees: ''

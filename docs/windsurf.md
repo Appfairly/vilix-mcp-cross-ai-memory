@@ -7,7 +7,7 @@ Windsurf configuration path. Documentation checked September 10, 2026.
 
 ## Requirements
 
-- A [Vilix account](https://vilix.ai/get-started).
+- A [Vilix AI account](https://vilix.ai/get-started).
 - Cascade with remote MCP enabled. Enterprise users must enable MCP in settings;
   organization policies may require the server to be allowed.
 
@@ -27,9 +27,9 @@ Windsurf configuration path. Documentation checked September 10, 2026.
    }
    ```
 
-3. Save, refresh the server list, and complete the OAuth sign-in to Vilix.
+3. Save, refresh the server list, and complete the OAuth sign-in to Vilix AI.
    This URL uses Streamable HTTP; do not append `/sse`.
-4. Enable the Vilix memory tools. If your team uses a server-ID allowlist, it
+4. Enable the Vilix AI memory tools. If your team uses a server-ID allowlist, it
    must include `vilix` and permit this configuration.
 5. Add the [memory instructions](mcp-config.md#memory-instructions) to the
    Cascade rules used by your workspace. Keep existing rules and tool approvals.
@@ -47,6 +47,6 @@ missing, check authentication, enabled tools, and team policy.
 ## References
 
 - [Current Cascade MCP documentation](https://docs.devin.ai/desktop/cascade/mcp)
-- [Vilix's current Cascade setup](https://vilix.ai/get-started?tool=windsurf&method=mcp&device=desktop)
+- [Vilix AI's current Cascade setup](https://vilix.ai/get-started?tool=windsurf&method=mcp&device=desktop)
 
 Need help? [support@vilix.ai](mailto:support@vilix.ai).

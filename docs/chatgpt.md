@@ -6,7 +6,7 @@ an OpenAI API integration. Documentation checked September 10, 2026.
 
 ## Requirements
 
-- A [Vilix account](https://vilix.ai/get-started).
+- A [Vilix AI account](https://vilix.ai/get-started).
 - ChatGPT Plus, Pro, Business, Enterprise, or Education with developer mode
   available. Workspace policies can restrict access.
 - A browser. Do not assume the same setup controls exist in native mobile apps.
@@ -23,8 +23,8 @@ an OpenAI API integration. Documentation checked September 10, 2026.
    https://api.vilix.ai/mcp
    ```
 
-4. Finish creation, sign in to your Vilix account, and approve access. Your app
-   appears under **Drafts**. Do not paste a Vilix API key into the OAuth client
+4. Finish creation, sign in to your Vilix AI account, and approve access. Your app
+   appears under **Drafts**. Do not paste a Vilix AI API key into the OAuth client
    credentials fields or choose “No Authentication.”
 5. In the conversation's **+ → Developer mode** menu, select **Vilix AI**.
    Confirm its memory tools are enabled.
@@ -38,13 +38,13 @@ approve the intended save. Custom instructions do not bypass tool permissions.
 
 Use the [fictional cross-tool example](../examples/sample-memory-workflow.md)
 with a demo account. Expand the tool calls to confirm that ChatGPT saved the
-exchange and the second client retrieved it from the same Vilix account.
+exchange and the second client retrieved it from the same Vilix AI account.
 Connecting the app does not import every existing ChatGPT conversation.
 
 ## References
 
 - [OpenAI: developer mode, eligibility, setup, and tool approvals](https://developers.openai.com/api/docs/guides/developer-mode)
-- [Vilix's current ChatGPT setup](https://vilix.ai/get-started?tool=chatgpt&method=mcp&device=desktop)
+- [Vilix AI's current ChatGPT setup](https://vilix.ai/get-started?tool=chatgpt&method=mcp&device=desktop)
 - [Connection and authentication reference](mcp-config.md)
 
 Need help? [support@vilix.ai](mailto:support@vilix.ai).

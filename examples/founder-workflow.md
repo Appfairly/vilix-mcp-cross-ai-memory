@@ -12,25 +12,24 @@ and Claude, getting multiple model perspectives without losing the thread.
 
 You are a founder. You use ChatGPT for fast drafting and Claude for a second
 opinion. You want both to know your company, your strategy, and your latest
-decisions — without a recap every time.
+decisions without a recap every time.
 
-## Step 1 — Brief once in ChatGPT
+## Step 1: Brief once in ChatGPT
 
-> "Company: Vilix — persistent AI memory via MCP. GTM right now: developer
+> "Company: Vilix AI, persistent AI memory via MCP. GTM right now: developer
 > distribution through a public GitHub repo and a ChatGPT onboarding funnel.
 > Remember this as my current strategy."
 
-## Step 2 — Get a second opinion in Claude
+## Step 2: Get a second opinion in Claude
 
-In a fresh Claude session (connected to Vilix):
+In a fresh Claude session (connected to Vilix AI):
 
 > "Given my current GTM strategy, what are the biggest risks and what would you
 > prioritize this month?"
 
-Claude already knows the company and the GTM plan from Vilix. You get a genuine
-second perspective on the *same* context — not a re-briefed, lossy summary.
+Claude already knows the company and the GTM plan from Vilix AI. You get a second perspective on the same saved context.
 
-## Step 3 — Decisions accumulate
+## Step 3: Decisions accumulate
 
 > "Decision: prioritize the GitHub repo first, the ChatGPT funnel second.
 > Remember that."

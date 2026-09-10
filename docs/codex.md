@@ -7,7 +7,7 @@ September 10, 2026; command syntax also checked with Codex CLI 0.147.0.
 
 ## Requirements
 
-- A [Vilix account](https://vilix.ai/get-started).
+- A [Vilix AI account](https://vilix.ai/get-started).
 - A current Codex client with remote MCP access allowed by your workspace.
 - Browser access for OAuth, or an API key for the bearer-token alternative.
 
@@ -22,7 +22,7 @@ codex mcp add vilix --url https://api.vilix.ai/mcp
 codex mcp login vilix
 ```
 
-Complete the browser sign-in to the same Vilix account you use in other tools.
+Complete the browser sign-in to the same Vilix AI account you use in other tools.
 Run `codex mcp list`, then use `/mcp` in a Codex session to check the connection.
 
 ## Desktop app or IDE extension
@@ -49,7 +49,7 @@ local settings are not automatically installed everywhere.
 ## API-key alternative
 
 For a client environment where OAuth is unsuitable, create a key in
-[Vilix Agents](https://app.vilix.ai/agents). Make it available as the environment
+[Vilix AI Agents](https://app.vilix.ai/agents). Make it available as the environment
 variable `VILIX_API_KEY` to the process running Codex, using your normal secret
 management method. Never commit the value.
 
@@ -86,6 +86,6 @@ assuming memory was retrieved or saved.
 
 - [OpenAI: MCP setup and supported authentication](https://learn.chatgpt.com/docs/extend/mcp)
 - [OpenAI: AGENTS.md instruction discovery](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
-- [Vilix's current Codex setup](https://vilix.ai/get-started?tool=codex&method=cli&device=desktop)
+- [Vilix AI's current Codex setup](https://vilix.ai/get-started?tool=codex&method=cli&device=desktop)
 
 Need help? [support@vilix.ai](mailto:support@vilix.ai).
