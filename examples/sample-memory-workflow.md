@@ -1,5 +1,9 @@
 # Example: Basic Cross-Tool Memory Workflow
 
+This is an illustrative workflow, not a recorded customer session. Use fictional
+data in a demo account, connect both clients to that same Vilix account, and add
+the [memory instructions](../docs/mcp-config.md#memory-instructions) first.
+
 This walks through the core Vilix value: **save context once, reuse it
 everywhere.**
 
@@ -36,6 +40,11 @@ The next tool you open already knows monetization is the current focus.
 
 ## What just happened
 
+Check the actual `save_turn` result in the first client and `get_context` result
+in the second. The retrieved content should include Lumen and the saved
+priorities. An assistant saying it remembers is not proof of a successful call.
+If retrieval is empty, check account identity and whether the save succeeded.
+
 - You never re-pasted your project background.
 - Two different models shared one consistent memory of you.
 - You stayed in control — context can be reviewed, edited, or erased anytime
@@ -44,4 +53,4 @@ The next tool you open already knows monetization is the current focus.
 See also: [founder-workflow.md](founder-workflow.md) ·
 [coding-agent-workflow.md](coding-agent-workflow.md)
 
-**Try it:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+**Try it:** [vilix.ai/get-started](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

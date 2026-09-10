@@ -1,5 +1,10 @@
 # Example: Founder Keeps Startup Context Across Tools
 
+This is an illustrative workflow, not a recorded founder or customer session.
+Use a demo account with fictional company information, connect both clients to
+that account, and add the [memory instructions](../docs/mcp-config.md#memory-instructions).
+Check the actual save and retrieval results rather than assuming the calls ran.
+
 This shows how a founder keeps strategy and decisions consistent across ChatGPT
 and Claude, getting multiple model perspectives without losing the thread.
 
@@ -40,4 +45,4 @@ Whichever tool you open next continues from this decision.
 
 See also: [sample-memory-workflow.md](sample-memory-workflow.md)
 
-**Try it:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+**Try it:** [vilix.ai/get-started](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

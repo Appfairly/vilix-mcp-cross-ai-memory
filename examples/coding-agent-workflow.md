@@ -1,5 +1,10 @@
 # Example: Decide in Claude, Build in Cursor
 
+This is an illustrative workflow. Use fictional data in a demo account, connect
+both clients to that same account, and add the
+[memory instructions](../docs/mcp-config.md#memory-instructions). Inspect the
+save and retrieval tool results before relying on the generated implementation.
+
 This shows how a developer moves product decisions from a planning tool into a
 coding agent — without re-briefing it.
 
@@ -47,4 +52,4 @@ Next time Cursor works on auth, the updated decision is already there.
 Setup: [../docs/claude.md](../docs/claude.md) ·
 [../docs/cursor.md](../docs/cursor.md)
 
-**Try it:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+**Try it:** [vilix.ai/get-started](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)

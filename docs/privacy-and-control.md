@@ -10,7 +10,7 @@ across AI tools.
 - **Export** — take your memory with you; it is not locked to one vendor.
 - **Erase** — delete saved content when you no longer want it stored.
 
-Manage your data from the dashboard: <https://app.getvilix.com/login>
+Manage your data from the dashboard: <https://app.vilix.ai/login>
 
 ## How your data is treated
 
@@ -24,9 +24,9 @@ Manage your data from the dashboard: <https://app.getvilix.com/login>
 
 This page is a plain-language summary. The authoritative documents are:
 
-- Privacy Policy: <https://getvilix.com/privacy>
-- Security overview: <https://getvilix.com/security>
-- Terms: <https://getvilix.com/terms>
+- Privacy Policy: <https://vilix.ai/privacy>
+- Security overview: <https://vilix.ai/security>
+- Terms: <https://vilix.ai/terms>
 
 Vilix is operated by Appfairly LLC. For privacy questions, contact
-**support@getvilix.com**.
+**support@vilix.ai**.

@@ -22,8 +22,8 @@ something sensitive, delete it immediately and rotate any exposed credential.
 If you believe you have found a security issue in Vilix or its MCP integration,
 please report it privately rather than opening a public issue.
 
-- Email: **security@getvilix.com**
-- Alternate: **support@getvilix.com**
+- Email: **security@vilix.ai**
+- Alternate: **support@vilix.ai**
 
 Please include enough detail to reproduce the issue, and do not include live
 credentials or real user data in your report. We aim to acknowledge reports
@@ -33,4 +33,4 @@ promptly and will coordinate a fix and disclosure timeline with you.
 
 This policy covers the contents of this public repository and the
 publicly accessible Vilix MCP integration surface. The Vilix product's full
-security overview is published at <https://getvilix.com/security>.
+security overview is published at <https://vilix.ai/security>.

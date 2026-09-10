@@ -1,52 +1,67 @@
-# Vilix + Cursor
+# Connect Vilix AI to Cursor
 
-**What this is for:** Give Cursor's AI persistent memory through Vilix, so the
-product decisions and architecture you discussed in ChatGPT or Claude are
-already available when you start implementing in Cursor.
+Bring saved product decisions into Cursor's agent without re-pasting the brief.
+This guide covers the desktop editor and Cursor CLI. Documentation checked
+September 10, 2026.
 
-## Prerequisites
+## Requirements
 
-- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
-- A Cursor version that supports MCP servers
+- A [Vilix account](https://vilix.ai/get-started).
+- A current Cursor client with remote MCP enabled. Your organization may need
+  to allow the server URL and tools.
 
-## Setup
+## Configure the server
 
-1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
-2. Open Cursor's MCP settings and add a new MCP server.
-3. Use the Vilix MCP server endpoint:
+Open `~/.cursor/mcp.json` for your user, or `.cursor/mcp.json` for one project.
+Create the file if needed. **Merge** this entry into the existing `mcpServers`
+object; keep the other servers:
 
-   ```
-   https://api.getvilix.com/mcp/sse
-   ```
-
-4. Complete the **OAuth approval** when prompted. No token to paste or store.
-5. Confirm the Vilix MCP server appears as connected in Cursor's MCP settings.
-
-### Example MCP server entry
-
-Cursor configures MCP servers via its settings UI / `mcp.json`. The exact
-schema is owned by Cursor and may change — treat the block below as a
-placeholder and follow Cursor's current MCP docs and the
-[get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs):
-
-```jsonc
+```json
 {
   "mcpServers": {
     "vilix": {
-      "url": "https://api.getvilix.com/mcp/sse"
-      // Authentication is completed via OAuth in the connection flow.
+      "url": "https://api.vilix.ai/mcp"
     }
   }
 }
 ```
 
-## Verify it works
+This is a Streamable HTTP connection with OAuth. No separate `/sse` URL or
+local server command is needed.
 
-Ask Cursor's AI to summarize the plan or decisions you made earlier in another
-tool. With Vilix connected, it should pull that context rather than starting
-from zero.
+### Cursor editor
 
-See [examples/coding-agent-workflow.md](../examples/coding-agent-workflow.md)
-for an end-to-end "decide in Claude, build in Cursor" flow.
+1. Restart Cursor if the new entry is not visible.
+2. Open **Customize → MCPs**, enable Vilix, and complete the OAuth sign-in.
+3. Use Agent mode and confirm `get_context` and `save_turn` are available.
+4. Add the [memory instructions](mcp-config.md#memory-instructions) under
+   **Customize → Rules** as a User Rule, or use a project rule for a single
+   project. Tool approvals still apply.
 
-**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+### Cursor CLI
+
+The CLI reads Cursor's MCP configuration. Authenticate and inspect the server:
+
+```bash
+agent mcp login vilix
+agent mcp list
+agent mcp list-tools vilix
+```
+
+Complete the browser sign-in, then start a new agent session.
+
+## Verify
+
+Use [Plan in Claude, build in Cursor](../examples/coding-agent-workflow.md)
+with fictional data in a demo account. Inspect the retrieval result in Cursor;
+the expected decisions must actually appear before you rely on the answer.
+This guide does not establish that a native phone app exposes the same setup
+controls as the editor.
+
+## References
+
+- [Cursor: MCP configuration, OAuth, and policy](https://cursor.com/docs/mcp)
+- [Cursor: CLI MCP commands](https://cursor.com/docs/cli/mcp)
+- [Vilix's current Cursor setup](https://vilix.ai/get-started?tool=cursor&method=mcp&device=desktop)
+
+Need help? [support@vilix.ai](mailto:support@vilix.ai).

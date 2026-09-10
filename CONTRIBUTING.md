@@ -38,5 +38,5 @@ repository and are not open source.
 
 ## Questions
 
-General questions: **support@getvilix.com** · Product docs:
-<https://getvilix.com/docs>
+General questions: **support@vilix.ai** · Product docs:
+<https://vilix.ai/docs>

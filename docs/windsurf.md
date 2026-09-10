@@ -1,47 +1,52 @@
-# Vilix + Windsurf
+# Connect Vilix AI to Windsurf / legacy Cascade
 
-**What this is for:** Give Windsurf's AI persistent memory through Vilix, so
-your project context, preferences, and prior decisions follow you into Windsurf
-from ChatGPT, Claude, and Cursor.
+Keep saved project context available to Cascade. Current vendor documentation
+places the legacy Cascade agent in Devin Desktop; its MCP configuration differs
+from the newer Devin Local agent. This guide covers **Cascade**, using its
+Windsurf configuration path. Documentation checked September 10, 2026.
 
-## Prerequisites
+## Requirements
 
-- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
-- A Windsurf version that supports MCP servers
+- A [Vilix account](https://vilix.ai/get-started).
+- Cascade with remote MCP enabled. Enterprise users must enable MCP in settings;
+  organization policies may require the server to be allowed.
 
 ## Setup
 
-1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
-2. Open Windsurf's MCP / plugin settings and add a new MCP server.
-3. Use the Vilix MCP server endpoint:
+1. Open **Devin Settings → Cascade → MCP Servers**, or Cascade's MCPs control.
+   Open the raw configuration at `~/.codeium/windsurf/mcp_config.json`.
+2. Merge the following entry into `mcpServers`, keeping existing servers:
 
+   ```json
+   {
+     "mcpServers": {
+       "vilix": {
+         "serverUrl": "https://api.vilix.ai/mcp"
+       }
+     }
+   }
    ```
-   https://api.getvilix.com/mcp/sse
-   ```
 
-4. Complete the **OAuth approval** when prompted. No token to copy or store.
-5. Confirm Vilix shows as a connected MCP server in Windsurf.
+3. Save, refresh the server list, and complete the OAuth sign-in to Vilix.
+   This URL uses Streamable HTTP; do not append `/sse`.
+4. Enable the Vilix memory tools. If your team uses a server-ID allowlist, it
+   must include `vilix` and permit this configuration.
+5. Add the [memory instructions](mcp-config.md#memory-instructions) to the
+   Cascade rules used by your workspace. Keep existing rules and tool approvals.
 
-### Example MCP server entry
+If you are using Devin Local rather than Cascade, follow
+[Devin's separate MCP configuration](https://docs.devin.ai/cli/extensibility/mcp/configuration)
+instead of pasting this file into the wrong client.
 
-Windsurf owns its MCP configuration format and it may change. Treat the block
-below as a placeholder and follow Windsurf's current MCP docs and the
-[get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs):
+## Verify
 
-```jsonc
-{
-  "mcpServers": {
-    "vilix": {
-      "url": "https://api.getvilix.com/mcp/sse"
-      // Authentication is completed via OAuth in the connection flow.
-    }
-  }
-}
-```
+Use the [fictional cross-tool example](../examples/sample-memory-workflow.md)
+in a demo account. Confirm the actual save and retrieval results. If tools are
+missing, check authentication, enabled tools, and team policy.
 
-## Verify it works
+## References
 
-Ask Windsurf's AI about a decision or preference you set in another tool. With
-Vilix connected, it should retrieve that context automatically.
+- [Current Cascade MCP documentation](https://docs.devin.ai/desktop/cascade/mcp)
+- [Vilix's current Cascade setup](https://vilix.ai/get-started?tool=windsurf&method=mcp&device=desktop)
 
-**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+Need help? [support@vilix.ai](mailto:support@vilix.ai).
