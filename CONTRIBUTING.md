@@ -1,22 +1,22 @@
 # Contributing
 
-Thanks for your interest in improving Vilix MCP's public documentation.
+Thanks for your interest in improving Vilix AI MCP's public documentation.
 
 ## What this repository is for
 
 This repo is **mainly for docs, examples, and community feedback**. It is the
-public developer-facing home for Vilix MCP — not the Vilix product source code.
+public developer-facing home for Vilix AI MCP. It does not contain product source code.
 
-The Vilix backend, production code, and infrastructure are **not** part of this
+The Vilix AI backend, production code, and infrastructure are **not** part of this
 repository and are not open source.
 
 ## What we welcome
 
-- **Documentation improvements** — clarity, accuracy, typos, broken links
-- **Setup guides** — better or new instructions for MCP-compatible clients
-- **Example workflows** — practical, real-world usage patterns
-- **Bug reports** — issues with setup steps or documentation
-- **Feature requests** — ideas for the Vilix MCP experience
+- **Documentation improvements**: clarity, accuracy, typos, broken links
+- **Setup guides**: better or new instructions for MCP-compatible clients
+- **Example workflows**: practical, real-world usage patterns
+- **Bug reports**: issues with setup steps or documentation
+- **Feature requests**: ideas for the Vilix AI MCP experience
 
 ## How to contribute
 
@@ -38,5 +38,5 @@ repository and are not open source.
 
 ## Questions
 
-General questions: **support@getvilix.com** · Product docs:
-<https://getvilix.com/docs>
+General questions: **support@vilix.ai** · Product docs:
+<https://vilix.ai/docs>

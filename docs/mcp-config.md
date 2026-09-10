@@ -1,68 +1,98 @@
-# Vilix MCP Configuration (Generic)
+# Vilix AI MCP connection and authentication
 
-**What this is for:** The shared MCP configuration used by every supported
-client, including Perplexity and any other MCP-compatible tool not covered by a
-dedicated guide.
+Documentation checked against current client references on **September 10,
+2026**. This is configuration guidance; it is not a claim that every client,
+account, or mobile app has been tested.
 
 ## Connection details
 
 | Field | Value |
-|-------|-------|
-| MCP server URL | `https://api.getvilix.com/mcp/sse` |
-| Transport | Server-Sent Events (SSE) endpoint, as published on the get started page |
-| Authentication | OAuth (approve once in the connection flow — no tokens to store) |
+| --- | --- |
+| Server URL | `https://api.vilix.ai/mcp` |
+| Transport | Streamable HTTP |
+| OAuth | Sign in to Vilix AI and approve access in the client's browser flow |
+| API key | For clients supporting custom bearer headers; manage keys in [Agents](https://app.vilix.ai/agents) |
 
-> This endpoint is the one published publicly at
-> [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs). It is the single URL used across all
-> supported AI tools.
+Use the full `/mcp` URL. Vilix AI is a hosted server, not a local stdio process,
+and its current configuration does not use a separate `/mcp/sse` endpoint.
+Streamable HTTP may stream responses using SSE; that does not make it the
+older separate SSE transport.
 
-## Generic MCP server entry
+## Choose authentication for your client
 
-Most MCP clients accept a server map similar to the placeholder below. The exact
-schema is defined by each client and can change — always cross-check with that
-client's MCP documentation and the
-[Vilix get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs):
+**OAuth:** Add the server URL, select OAuth if asked, then complete the browser
+sign-in and consent flow. The client manages its OAuth credentials. If sign-in
+expires, use the client's Authenticate or login action again.
 
-```jsonc
-{
-  "mcpServers": {
-    "vilix": {
-      "url": "https://api.getvilix.com/mcp/sse"
-      // OAuth is handled during the connection/approval flow.
-    }
-  }
-}
+**API key:** Create a key in the Vilix AI dashboard's Agents page when your client
+requires or supports static credentials. Send it as an HTTP header:
+
+```http
+Authorization: Bearer YOUR_VILIX_API_KEY
 ```
 
-## The Vilix MCP tool surface (high level)
+Use a client-supported secret or environment-variable setting where available.
+Do not put a key in the server URL, a public repository, a screenshot, or a
+chat transcript. Headers can still be exposed by local configuration, shell
+history, or debug logging, so treat the key like a password. Revoke and replace
+an exposed key in the dashboard.
 
-Once connected, your AI client can call Vilix to:
+ChatGPT's web guide uses OAuth; do not select “No Authentication” or put a Vilix AI
+API key into OAuth Client ID/Client Secret fields. Client configuration keys
+also differ: Cursor uses `url`, Cascade supports `serverUrl`, and Codex uses a
+TOML server table. Use an exact guide instead of pasting a generic JSON block.
 
-- **Retrieve relevant context** before it answers
-- **Save useful memories** after a meaningful exchange
-- **Continue work across sessions and tools**
+## Client guides
 
-The full developer reference — transport, the two-tool surface, JSON-RPC,
-errors, and best practices — is maintained in the official docs:
-<https://getvilix.com/docs>. Internal implementation details are intentionally
-out of scope for this repository.
+- [Claude and Claude Code](claude.md)
+- [Cursor editor and CLI](cursor.md)
+- [Codex desktop, CLI, and IDE](codex.md)
+- [ChatGPT web](chatgpt.md)
+- [Windsurf / legacy Cascade](windsurf.md)
+- [Other supported client paths](https://vilix.ai/get-started)
 
-## Recommended assistant instruction
+Remote MCP support alone is not enough: the client must support Vilix AI's
+transport, its chosen authentication method, and read/write tool calls. Your
+workspace administrator may also need to allow the server.
 
-To make memory use consistent, add an instruction like this to your client's
-system/project prompt:
+## Memory instructions
 
+Add this to the client instructions for conversations where you want Vilix AI
+memory. Preserve your other instructions. Client permissions and tool approvals
+still apply.
+
+```text
+Use Vilix AI memory for each exchange unless I explicitly request stateless mode.
+
+1. Before composing a reply, call get_context with user_prompt set to my exact
+   latest message. Use the returned relevant context and instructions.
+2. Finalize the answer internally.
+3. Before returning it, call save_turn with my exact user_message, that exact
+   assistant_message, and an honest source label for this AI client. Reuse the
+   returned chat_id for later turns in the same conversation.
+4. Return the same answer that was saved.
+
+If a required memory call fails or is unavailable, tell me. Do not claim that
+context was retrieved or the exchange was saved when it was not.
 ```
-Before answering, retrieve relevant context from Vilix.
-After a meaningful exchange, save what is worth remembering to Vilix.
-Then return the answer.
-```
 
-## Perplexity and other MCP-compatible clients
+The names above are Vilix AI's tool names; some clients display a namespaced
+version. `get_context` and `save_turn` form the core workflow, while other
+available tools cover search and context management.
 
-For Perplexity and any other MCP-compatible client: add a new MCP connector,
-use the server URL above, and complete the OAuth approval. The wording of the
-connector UI varies by client and version — follow that client's current MCP
-instructions plus the Vilix get started page.
+## Verify the connection
 
-**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+1. Confirm Vilix AI appears connected and that `get_context` and `save_turn` are
+   available in the client.
+2. In a demo account, follow the [cross-tool example](../examples/sample-memory-workflow.md)
+   using fictional information. Inspect the actual save result.
+3. Connect a second client to that same account, ask for the fictional project,
+   and inspect the retrieval result. It should contain what you saved.
+
+If no context is found, check the account, source conversation, save result,
+and whether the client called the tools. Saved context is retrieved selectively;
+it is not a guarantee that every past message will be included in every answer.
+
+For connection failures, first check the exact URL, chosen authentication,
+client version, enabled tools, and workspace policy. Share a redacted error with
+[support@vilix.ai](mailto:support@vilix.ai), never a credential or private memory.

@@ -1,32 +1,36 @@
-# Privacy and Control
+# Privacy and control
 
-Vilix is designed so that **your memory belongs to you** and stays portable
-across AI tools.
+Vilix AI stores context for your account so you can use it across connected AI
+tools. This is a short guide to the controls and policies, not a replacement
+for the full Privacy Policy.
 
-## You are in control
+## Manage your saved context
 
-- **Audit** — review what has been saved from the Vilix dashboard.
-- **Edit** — correct or refine stored context.
-- **Export** — take your memory with you; it is not locked to one vendor.
-- **Erase** — delete saved content when you no longer want it stored.
+Use the [dashboard](https://app.vilix.ai/) to inspect, edit, export, or delete
+saved content. Manage and revoke API keys on the
+[Agents page](https://app.vilix.ai/agents).
 
-Manage your data from the dashboard: <https://app.getvilix.com/login>
+AI clients connect through **OAuth** or a **revocable API key**, depending on
+the client. See the [authentication guide](mcp-config.md). Approve only the
+access you intend, and keep credentials private.
 
 ## How your data is treated
 
-- Conversations are **stored for you, not used to train models**.
-- Vilix is built for **portable, cross-platform AI context** — the value is in
-  moving with you, not locking you in.
-- Access from AI clients is granted through **OAuth**, which you approve and can
-  revoke.
+Vilix AI's [Privacy Policy](https://vilix.ai/privacy) states that saved
+conversations are stored to provide the service and are not used by Vilix AI
+to train foundation models. AI clients you connect have their own data-handling
+policies. Review those policies before sharing context with a client.
 
-## Full policy
+The policy also describes retention and how deletion reaches backups. Deleting
+content in the active service is not the same as immediately removing every
+backup copy. Consult the current policy for the applicable schedule.
 
-This page is a plain-language summary. The authoritative documents are:
+## Full policies and help
 
-- Privacy Policy: <https://getvilix.com/privacy>
-- Security overview: <https://getvilix.com/security>
-- Terms: <https://getvilix.com/terms>
+- [Privacy Policy](https://vilix.ai/privacy)
+- [Security overview](https://vilix.ai/security)
+- [Terms of Service](https://vilix.ai/terms)
 
-Vilix is operated by Appfairly LLC. For privacy questions, contact
-**support@getvilix.com**.
+Vilix AI is operated by Appfairly LLC. For account or data help, contact
+[support@vilix.ai](mailto:support@vilix.ai). For security or privacy concerns,
+use [security@vilix.ai](mailto:security@vilix.ai).

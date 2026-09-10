@@ -1,104 +1,111 @@
 # Vilix AI MCP
 
-> Persistent memory for ChatGPT, Claude, Cursor, Windsurf, Grok and every other MCP-compatible AI tool, on your phone and your laptop
+**Shared memory for AI assistants and coding agents.** Keep project context,
+preferences, decisions, and saved conversations available when you switch tools
+or devices.
 
-Vilix AI gives your AI assistants a shared memory across tools and across devices, so you don't have to re-explain your projects, preferences, decisions, and workflow every time you change tools or devices.
+Vilix AI is a hosted memory service built on the **Model Context Protocol
+(MCP)**, the standard that lets an AI client call external tools. Connect each
+supported client to the same Vilix AI account, then have it retrieve context before
+answering and save the exchange before returning its reply.
 
-**Plan on your phone. Continue on your laptop. Same memory, every time.**
+[Get started](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+· [Website](https://vilix.ai)
+· [Dashboard](https://app.vilix.ai/)
+· [Documentation](https://vilix.ai/docs)
 
-[**Get started →**](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs) &nbsp;·&nbsp;
-[Website](https://vilix.ai) &nbsp;·&nbsp;
-[Docs](https://vilix.ai/docs)
+## The problem Vilix AI solves
 
-Questions, support, or partnership inquiries — visit [vilix.ai](https://vilix.ai).
+You plan a project in Claude, implement it in a coding agent, and ask ChatGPT
+for another perspective. Each tool needs the same background. Vilix AI provides
+shared memory that connected tools can retrieve instead of making you paste
+that background again.
 
----
+**Plan on your phone. Continue on your laptop.** Both clients must be connected
+to your Vilix AI account and able to call its memory tools. Client plans, mobile
+support, organization policies, and tool approvals can differ.
 
-## The problem
+## Connect your tool
 
-AI tools forget what you were talking about across chats, platforms, and devices. You sketch out a plan on ChatGPT mobile, then pull up Claude on your laptop for a second opinion, then open up Cursor to actually build it, but every single tool starts from zero. You re-paste the same background, re-explain the same decisions, re-describe the same preferences every time you switch between models, platforms, or devices.
+| Client | Setup guide | Connection |
+| --- | --- | --- |
+| Claude and Claude Code | [Web, desktop, mobile, and CLI setup](docs/claude.md) | Remote MCP + OAuth |
+| Codex | [Desktop, CLI, and IDE setup](docs/codex.md) | Streamable HTTP + OAuth or API key |
+| Cursor | [Editor and CLI setup](docs/cursor.md) | Streamable HTTP + OAuth |
+| OpenClaw | [Current host setup](https://vilix.ai/get-started?tool=openclaw&method=mcp&device=desktop) | Streamable HTTP + API key |
+| Hermes | [Current CLI setup](https://vilix.ai/get-started?tool=hermes&method=cli&device=desktop) | Streamable HTTP + API key |
+| Windsurf / Cascade | [Legacy Cascade setup](docs/windsurf.md) | Streamable HTTP + OAuth |
+| ChatGPT | [Web developer-mode setup](docs/chatgpt.md) | Streamable HTTP + OAuth; eligible paid account |
+| Other clients | [Connection and authentication reference](docs/mcp-config.md) | Requires compatible remote MCP and authentication support |
 
-## The solution
+The [current setup selector](https://vilix.ai/get-started) covers additional
+client paths. These guides describe connecting to Vilix AI; they do not imply
+endorsement by the client vendors.
 
-Vilix AI is a native Model Context Protocol memory layer for AI assistants and coding agents. It is built directly on the open MCP standard, not a browser extension, not a one-off plugin, not a proprietary bridge. One MCP connection, and any compliant client can read and write to the same memory. You save context once, and it is there everywhere, on any device.
+### Connection details
 
-## What makes Vilix AI different
-
-**Phone-to-laptop continuity, not just cross-tool.** Most cross-AI memory tools solve switching between apps, Vilix AI solves switching devices. Start a conversation with Claude on your phone on the train, open up Claude Code on your laptop an hour later, and it already knows exactly where you left off.
-
-**Built natively on MCP, an open standard, not a proprietary integration.** Vilix AI does not maintain a separate plugin per platform, it exposes standard MCP tools, so any current or future MCP-compatible client works automatically, no custom integration required.
-
-**Real conversations, not just extracted facts.** Most memory tools distill your chats down into short bullet-point facts and throw away the rest, Vilix AI keeps the actual conversation history and context itself, retrievable and searchable, not just a lossy summary of it.
-
-**Long-term by design, not a rolling window.** Vilix AI is not built to remember the last few days and quietly forget the rest, it is designed to hold years of accumulated context, so a decision from a year ago is just as retrievable as one from this morning.
-
-**You control it.** Audit, edit, export or erase anything stored, anytime.
-
-## Popular AI tools that support MCP
-
-Vilix AI works with any MCP-compatible client.
-
-**Available on both phone and laptop:**
-- Claude by Anthropic
-- ChatGPT by OpenAI
-- Grok by xAI
-- Perplexity
-
-**Coding agents and IDEs, primarily desktop:**
-- Cursor
-- Codex
-- Windsurf
-- GitHub Copilot
-
-If a client speaks MCP, Vilix AI works with it, this list will only keep growing.
-
-## Quickstart
-
-You will need a Vilix AI account. Setup takes about five minutes and uses OAuth, no API tokens to copy or store.
-
-1. Create a Vilix AI account
-2. Open the setup page
-3. Connect your AI client on your phone, your laptop (or both!)
-4. Add the Vilix AI MCP server
-5. Start using persistent memory — your context now follows you across every tool and every device
-
-### MCP server connection
-
-The Vilix AI MCP server uses a single endpoint across every supported client:
-
-```
+```text
 https://api.vilix.ai/mcp
 ```
 
-Authentication is handled through OAuth during the client connection flow, you approve access once, and there's no token to paste or store.
+- **Transport:** Streamable HTTP. Use the full URL above; do not append `/sse`.
+- **Authentication:** OAuth for clients with a browser sign-in flow. Vilix AI also
+  offers revocable API keys for clients that support bearer headers. Follow
+  your client's guide; authentication configuration is not interchangeable.
+- **Account:** Sign in to the same Vilix AI account in each client. See
+  [current plans](https://vilix.ai/pricing) for product limits.
 
-## Example use cases
+You do not need to clone or run this repository to connect. Vilix AI hosts the MCP
+server. Existing chats in another provider are not automatically imported by
+adding a connector; memory must first be saved to Vilix AI or imported through an
+available product workflow.
 
-- **Founder** — keeps startup context, strategy, and decisions consistent across ChatGPT and Claude, on the phone between meetings and on the laptop back at the desk.
-- **Developer** — moves product decisions and architecture notes from a mobile chat with Claude right into Cursor on the laptop, so the coding agent already knows the plan.
-- **Creator** — keeps brand voice, audience, and content plans available across every AI tool they write with, on any device.
-- **AI power user** — stops repeating preferences and project background every time they change models, devices, or open a new chat.
+## Make memory part of each exchange
 
-## How the MCP tools work
+The core memory workflow uses two tools:
 
-- **Retrieve relevant context** — before answering, the assistant pulls the actual conversation history and context that matters for what you're working on, not a stripped-down fact list.
-- **Save useful memories** — after a meaningful exchange, the assistant persists the real content of what happened, kept for the long term.
-- **Continue work across sessions and devices** — the next tool you open, on whatever device, picks up exactly where the last one left off.
+1. `get_context(user_prompt=...)` retrieves relevant saved context before the
+   assistant composes its answer.
+2. `save_turn(user_message=..., assistant_message=..., source=..., chat_id=...)`
+   saves the finalized exchange before the assistant returns that same answer.
+
+Reuse the returned `chat_id` within the same conversation. Vilix AI also exposes
+other tools for search and managing context; the connected client's tool list
+is the current reference.
+
+Add the [memory instructions](docs/mcp-config.md#memory-instructions) to your
+client's custom or project instructions, and allow the relevant tool calls.
+Connecting a server alone does not guarantee the client calls it on every turn.
+
+## Try a cross-tool workflow
+
+- [Save a fictional project in one tool and recall it in another](examples/sample-memory-workflow.md)
+- [Plan in Claude and implement in Cursor](examples/coding-agent-workflow.md)
+- [Keep a founder's project decisions available across tools](examples/founder-workflow.md)
+
+These examples are illustrative. Verify the actual `get_context` and
+`save_turn` results in your client instead of relying on an assistant saying
+“I remember.”
 
 ## Privacy and control
 
-You control your saved memory. Audit, edit, export, and erase your stored content from the Vilix AI dashboard, anytime. Vilix AI is designed for portable AI context, your memory is yours to move, not locked into a single vendor. Conversations are stored for you, not used to train models.
+Use the dashboard to inspect and manage your saved context. Vilix AI's
+[Privacy Policy](https://vilix.ai/privacy) describes retention, export,
+deletion, and data handling; saved conversations are not used by Vilix AI to train
+foundation models. Connected AI clients have their own data policies.
 
-## What this repository is and is not
+See [privacy and control](docs/privacy-and-control.md) and the
+[security overview](https://vilix.ai/security). Keep API keys, personal
+conversations, and account details out of public issues and pull requests.
 
-This is a public documentation, setup, and distribution repository for Vilix AI MCP. It contains setup guides, example workflows, and community feedback channels. It does not contain the Vilix AI backend, production code, API secrets, database logic or internal infrastructure. The Vilix AI product itself is a hosted service, this repo is the developer-facing front door to it.
+## About this repository
 
----
+This is the public **documentation and examples** repository for Vilix AI,
+operated by Appfairly LLC. The hosted product, backend, database logic, and
+production infrastructure are not included or open source. The
+[license](LICENSE) applies to this repository's documentation and examples.
 
-### About
+[Contributing](CONTRIBUTING.md) · [Security policy](SECURITY.md)
+· [Changelog](CHANGELOG.md)
 
-Vilix AI is an MCP memory server providing persistent memory for AI: ChatGPT memory, Claude memory, Cursor memory, and AI agent memory in one place, built natively on the open MCP standard. It is a shared memory layer for AI assistants and a cross-platform, cross-device AI memory system that keeps real conversations, not just extracted facts, for as long as you need them.
-
-**Ready to stop repeating yourself?**
-
-**Start here: [vilix.ai/get-started](https://vilix.ai/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)**
+Setup help: [support@vilix.ai](mailto:support@vilix.ai).

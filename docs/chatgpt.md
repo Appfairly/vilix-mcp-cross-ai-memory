@@ -1,46 +1,50 @@
-# Vilix + ChatGPT
+# Connect Vilix AI to ChatGPT web
 
-**What this is for:** Give ChatGPT persistent memory through Vilix, so the
-context you build in ChatGPT is available later in Claude, Cursor, Windsurf, and
-other MCP-compatible tools — and vice versa.
+Share saved project context between ChatGPT and your other connected AI tools.
+This guide covers **ChatGPT in a browser using developer mode**, not Codex or
+an OpenAI API integration. Documentation checked September 10, 2026.
 
-## Prerequisites
+## Requirements
 
-- A Vilix account — sign up at [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
-- A ChatGPT plan/tier that supports adding MCP connectors
+- A [Vilix AI account](https://vilix.ai/get-started).
+- ChatGPT Plus, Pro, Business, Enterprise, or Education with developer mode
+  available. Workspace policies can restrict access.
+- A browser. Do not assume the same setup controls exist in native mobile apps.
 
 ## Setup
 
-1. Sign in to Vilix and open the setup page: [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
-2. In ChatGPT, add a new MCP connector / custom connector.
-3. Use the Vilix MCP server endpoint:
+1. In ChatGPT, open **Settings → Security and login** and turn on
+   **Developer mode**.
+2. Open [Plugins](https://chatgpt.com/plugins), select **+**, and create a
+   developer-mode app. Name it **Vilix AI**.
+3. Enter this remote MCP URL and choose **OAuth**:
 
-   ```
-   https://api.getvilix.com/mcp/sse
-   ```
-
-4. Complete the **OAuth approval** when prompted. There is no token to paste —
-   you approve access once and the connection is established.
-5. (Recommended) Add a short system instruction so the assistant uses memory
-   consistently:
-
-   ```
-   At the start of a task, retrieve relevant context from Vilix.
-   After a meaningful exchange, save what is worth remembering to Vilix.
+   ```text
+   https://api.vilix.ai/mcp
    ```
 
-## Verify it works
+4. Finish creation, sign in to your Vilix AI account, and approve access. Your app
+   appears under **Drafts**. Do not paste a Vilix AI API key into the OAuth client
+   credentials fields or choose “No Authentication.”
+5. In the conversation's **+ → Developer mode** menu, select **Vilix AI**.
+   Confirm its memory tools are enabled.
+6. Add the [memory instructions](mcp-config.md#memory-instructions) to your
+   ChatGPT custom instructions under **Settings → Personalization**.
 
-Ask ChatGPT to recall something you established in another session or another
-tool. If Vilix is connected, it should retrieve that context instead of asking
-you to repeat it.
+ChatGPT may ask you to confirm write tools such as `save_turn`. Review and
+approve the intended save. Custom instructions do not bypass tool permissions.
 
-## Notes
+## Verify
 
-- The exact connector UI wording in ChatGPT can change between releases. Follow
-  the in-product steps on the [get started page](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs),
-  which stays current.
-- See [mcp-config.md](mcp-config.md) for the generic MCP configuration shared by
-  all clients.
+Use the [fictional cross-tool example](../examples/sample-memory-workflow.md)
+with a demo account. Expand the tool calls to confirm that ChatGPT saved the
+exchange and the second client retrieved it from the same Vilix AI account.
+Connecting the app does not import every existing ChatGPT conversation.
 
-**Get started:** [getvilix.com/get-started](https://getvilix.com/get-started?utm_source=github&utm_medium=repo&utm_campaign=mcp_docs)
+## References
+
+- [OpenAI: developer mode, eligibility, setup, and tool approvals](https://developers.openai.com/api/docs/guides/developer-mode)
+- [Vilix AI's current ChatGPT setup](https://vilix.ai/get-started?tool=chatgpt&method=mcp&device=desktop)
+- [Connection and authentication reference](mcp-config.md)
+
+Need help? [support@vilix.ai](mailto:support@vilix.ai).
